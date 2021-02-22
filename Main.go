@@ -46,9 +46,9 @@ func handelRequests() {
 	/// We have two endpoints, for the main root, like localhost:4747, it runs homepage function and for localhost:4747/articles it executes AllArticles function
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/articles", AllArticles)
-	http.HandleFunc("/exchange/v1/exchangehistory/", exchangeHistory)
-	http.HandleFunc("/exchange/v1/exchangeborder/", exchangeBorder)
-	http.HandleFunc("/exchange/v1/diag/", diag)
+	//http.HandleFunc("/exchange/v1/exchangehistory", exchangeHistory)
+	//http.HandleFunc("/exchange/v1/exchangeborder", exchangeBorder)
+	//http.HandleFunc("/exchange/v1/diag", diag)
 	log.Fatal(http.ListenAndServe(getport(), nil))
 }
 
