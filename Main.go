@@ -18,7 +18,7 @@ type Articles []Article
 
 func AllArticles(rw http.ResponseWriter, r *http.Request) {
 	articles := Articles{
-		Article{Title: "Article 1", Desc: "Description 1", Content: " Content 1"},
+		Article{Title: "Article 1 2", Desc: "Description 1", Content: " Content 1"},
 		Article{Title: "Article 2", Desc: "Description 2", Content: " Content 2"},
 		Article{Title: "Article 3", Desc: "Description 3", Content: " Content 3"},
 	}
@@ -37,6 +37,9 @@ func handelRequests() {
 	/// We have two endpoints, for the main root, like localhost:4747, it runs homepage function and for localhost:4747/articles it executes AllArticles function
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/articles", AllArticles)
+	http.HandleFunc("/exchange/v1/exchangehistory/", exchangeHistory)
+	http.HandleFunc("/exchange/v1/exchangeborder/", exchangeBorder)
+	http.HandleFunc("/exchange/v1/diag/", diag)
 	log.Fatal(http.ListenAndServe(getport(), nil))
 }
 
